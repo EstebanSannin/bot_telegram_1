@@ -1,4 +1,4 @@
-name: Meteo Ugento (LE)
+name: Meteo Ugento
 on:
   weather:
     apiKey: ${{ secrets.OPENWEATHERMAP_API_KEY }}
