@@ -1,4 +1,4 @@
-name: Meteo Nociglia (LE)
+name: Meteo Nociglia
 on:
   weather:
     apiKey: ${{ secrets.OPENWEATHERMAP_API_KEY }}
