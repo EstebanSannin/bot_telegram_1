@@ -2,6 +2,7 @@ name: Meteo Nociglia
 on:
   weather:
     apiKey: ${{ secrets.OPENWEATHERMAP_API_KEY }}
+    api: weather
     params:
       lat: 40.03913
       lon: 18.32586
