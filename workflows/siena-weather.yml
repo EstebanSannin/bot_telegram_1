@@ -1,0 +1,27 @@
+name: Meteo Siena
+on:
+  weather:
+    apiKey: ${{ secrets.OPENWEATHERMAP_API_KEY }}
+    api: weather
+    params:
+      lat: 43.31850
+      lon: 11.33135
+      units: metric
+      lang: it
+jobs:
+  notify:
+    name: Send notifications
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send a telegram message
+        uses: appleboy/telegram-action@v0.1.0
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            *Meteo di oggi a Siena*: 
+              - Condizioni: ${{on.weather.outputs.weather[0].description}}
+              - Temperatura minima: ${{on.weather.outputs.main.temp_min}}
+              - Temperatura massima: ${{on.weather.outputs.main.temp_max}}
+              - Umidità: ${{on.weather.outputs.main.humidity}}%
+          format: markdown
