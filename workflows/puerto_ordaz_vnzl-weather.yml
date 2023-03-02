@@ -2,13 +2,12 @@ name: Meteo Puerto Ordaz Venezuela
 on:
   weather:
     apiKey: ${{ secrets.OPENWEATHERMAP_API_KEY }}
+    api: weather
     params:
       lat: 8.311848
       lon: -62.720580
       units: metric
       lang: it
-    every: "0 7 * * *"
-    timeZone: UTC
 jobs:
   notify:
     name: Send notifications
@@ -21,8 +20,8 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             *Meteo di oggi a Puerto Ordaz (Venezuela)*: 
-              - Condizioni: ${{on.weather.outputs.current.weather[0].description}}
-              - Temperatura minima: ${{on.weather.outputs.daily[0].temp.min}}
-              - Temperatura massima: ${{on.weather.outputs.daily[0].temp.max}}
-              - Umidità: ${{on.weather.outputs.daily[0].humidity}}%
+              - Condizioni: ${{on.weather.outputs.weather[0].description}}
+              - Temperatura minima: ${{on.weather.outputs.main.temp_min}}
+              - Temperatura massima: ${{on.weather.outputs.main.temp_max}}
+              - Umidità: ${{on.weather.outputs.main.humidity}}%
           format: markdown

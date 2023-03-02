@@ -21,7 +21,7 @@ jobs:
           message: |
             *Meteo di oggi a Nociglia (LE)*: 
               - Condizioni: ${{on.weather.outputs.weather[0].description}}
-              - Temperatura minima: ${{on.weather.outputs.main[0].temp_min}}
-              - Temperatura massima: ${{on.weather.outputs.main[0].temp_max}}
-              - Umidità: ${{on.weather.outputs.main[0].humidity}}%
+              - Temperatura minima: ${{on.weather.outputs.main.temp_min}}
+              - Temperatura massima: ${{on.weather.outputs.main.temp_max}}
+              - Umidità: ${{on.weather.outputs.main.humidity}}%
           format: markdown
