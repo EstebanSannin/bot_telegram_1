@@ -20,8 +20,8 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             *Meteo di oggi a Nociglia (LE)*: 
-              - Condizioni: ${{on.weather.outputs.current.weather[0].description}}
-              - Temperatura minima: ${{on.weather.outputs.daily[0].temp.min}}
-              - Temperatura massima: ${{on.weather.outputs.daily[0].temp.max}}
-              - Umidità: ${{on.weather.outputs.daily[0].humidity}}%
+              - Condizioni: ${{on.weather.outputs.weather[0].description}}
+              - Temperatura minima: ${{on.weather.outputs.main[0].temp_min}}
+              - Temperatura massima: ${{on.weather.outputs.main[0].temp_max}}
+              - Umidità: ${{on.weather.outputs.main[0].humidity}}%
           format: markdown
