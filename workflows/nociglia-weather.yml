@@ -8,8 +8,6 @@ on:
       lon: 18.32586
       units: metric
       lang: it
-    every: "0 7 * * *"
-    timeZone: UTC
 jobs:
   notify:
     name: Send notifications
